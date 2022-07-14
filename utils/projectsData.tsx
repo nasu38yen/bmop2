@@ -1,4 +1,8 @@
-const projects = [
+interface Project {
+  [prop: string]: any
+}
+
+export const projects: Project[] = [
   {
     id: 'react',
     name: 'React',
@@ -21,5 +25,3 @@ const projects = [
     slug: 'gatsbyjs-gatsby',
   },
 ];
-
-module.exports = { projects };
