@@ -36,14 +36,4 @@ const Home = () => {
   );
 };
 
-// export const getStaticProps = async () => {
-//   const response = await fetch('/api/projects');
-//   const data = await response.json();
-//   return {
-//     props: {
-//       message: data.text,
-//     },
-//   };
-// };
-
 export default Home;
