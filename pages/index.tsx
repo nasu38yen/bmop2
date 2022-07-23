@@ -3,18 +3,9 @@ import { projectIcons } from '../components/Icons';
 
 import { projects } from '../utils/projectsData';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Home = () => {
-  const [message, setMessage] = useState([]);
-  useEffect(() => {
-    const fetchMessage = async () => {
-      const response = await fetch('/api/projects');
-      const data = await response.json();
-      setMessage(data.text);
-    };
-    fetchMessage();
-  }, []);
-
   return (
     <div className="home">
       <h1>What Can I Deploy to Static Apps?</h1>
@@ -31,7 +22,11 @@ const Home = () => {
           );
         })}
       </div>
-      <div>{message}</div>
+      <div>
+        <Link href="/blog/last">
+          <a>Go to lastBlog</a>
+        </Link>
+      </div>
     </div>
   );
 };
