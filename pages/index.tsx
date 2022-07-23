@@ -1,33 +1,34 @@
-import SmallCard from '../components/SmallCard';
-import { projectIcons } from '../components/Icons';
+import * as React from 'react';
+import type { NextPage } from 'next';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Link from '../src/Link';
+import ProTip from '../src/ProTip';
+import Copyright from '../src/Copyright';
 
-import { projects } from '../utils/projectsData';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-
-const Home = () => {
+const Home: NextPage = () => {
   return (
-    <div className="home">
-      <h1>What Can I Deploy to Static Apps?</h1>
-      <div className="card-grid">
-        {projects.map((project) => {
-          const Icon = projectIcons[project.id];
-          return (
-            <SmallCard
-              key={project.id}
-              Icon={Icon}
-              title={project.name}
-              slug={project.slug}
-            />
-          );
-        })}
-      </div>
-      <div>
-        <Link href="/blog/last">
-          <a>Go to lastBlog</a>
+    <Container maxWidth="lg">
+      <Box
+        sx={{
+          my: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant="h4" component="h1" gutterBottom>
+          MUI v5 + Next.js with TypeScript example
+        </Typography>
+        <Link href="/blog/last" color="secondary">
+          Go to the blog page
         </Link>
-      </div>
-    </div>
+        <ProTip />
+        <Copyright />
+      </Box>
+    </Container>
   );
 };
 
