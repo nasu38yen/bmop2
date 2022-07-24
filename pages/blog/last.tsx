@@ -1,5 +1,6 @@
 import { useLastBlog } from '../../utils/dataSWR';
 import Blog from '../../components/blog';
+import Layout from '../../layout/Layout';
 
 const Post = () => {
   const { blog, isLoading, isError } = useLastBlog();
@@ -8,5 +9,7 @@ const Post = () => {
 
   return <Blog blog={blog} />;
 };
+
+Post.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Post;

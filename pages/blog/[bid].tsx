@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useBlog } from '../../utils/dataSWR';
 import Blog from '../../components/blog';
+import Layout from '../../layout/Layout';
 
 const Post = () => {
   const router = useRouter();
@@ -11,5 +12,7 @@ const Post = () => {
 
   return <Blog blog={blog} />;
 };
+
+Post.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Post;
