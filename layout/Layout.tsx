@@ -1,3 +1,4 @@
+import Container from '@mui/material/Container';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -5,7 +6,9 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <Container maxWidth="lg">
+        <main>{children}</main>
+      </Container>
       <Footer />
     </>
   )
