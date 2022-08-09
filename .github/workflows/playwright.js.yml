@@ -5,11 +5,11 @@ name: Playwright tests
 
 on:
   # Runs on push or pull requests and nightly
-  push:
-  pull_request:
-  schedule: 
+  # push:
+  # pull_request:
+  # schedule: 
     # nightly
-    - cron: '0 0 * * *'
+    # - cron: '0 0 * * *'
 
 jobs:
   build:
