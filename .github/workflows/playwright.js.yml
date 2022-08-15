@@ -3,12 +3,12 @@
 
 name: Playwright tests
 
-on:
-  # Runs on push or pull requests and nightly
+# on:
+  ## Runs on push or pull requests and nightly
   # push:
   # pull_request:
   # schedule: 
-    # nightly
+    ## nightly
     # - cron: '0 0 * * *'
 
 jobs:

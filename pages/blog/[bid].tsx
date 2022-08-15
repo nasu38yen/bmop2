@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useBlog } from '../../utils/dataSWR';
-import Blog from '../../components/blog';
+import Blog from '../../components/Blog';
 import Layout from '../../layout/Layout';
 
 const Post = () => {

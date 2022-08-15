@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "image/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "blob",
+      "type": "blob",
+      "path": "jpeg/{id}",
+      "connection": "BMOPStorage",
+      "direction": "in",
+      "dataType": "binary"
+    }    
+  ]
+}

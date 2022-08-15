@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 const Header = () => {
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar position="static" color="transparent" elevation={1}>
       <Container maxWidth="lg">
         <Toolbar>
           <CameraIcon sx={{ mr: 2 }} />

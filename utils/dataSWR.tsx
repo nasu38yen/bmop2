@@ -19,3 +19,30 @@ export const useLastBlog = () => {
     isError: error
   };
 };
+
+export const useRecents = () => {
+  const { data, error } = useSWR('/api/matter_recentries', fetcher);
+  return {
+    recents: data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
+export const usePrior = (createdAt) => {
+  const { data, error } = useSWR('/api/priorid?createdAt=' + createdAt, fetcher);
+  return {
+    prior: data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
+export const useNext = (createdAt) => {
+  const { data, error } = useSWR('/api/nextid?createdAt=' + createdAt, fetcher);
+  return {
+    next: data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};

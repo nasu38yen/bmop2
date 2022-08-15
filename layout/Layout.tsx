@@ -9,7 +9,9 @@ export default function Layout({ children }) {
       <Container maxWidth="lg">
         <main>{children}</main>
       </Container>
-      <Footer />
+      <Container maxWidth="lg">
+        <Footer />
+      </Container>
     </>
   )
 }

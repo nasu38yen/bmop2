@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "nextid"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "matters",
+      "databaseName": "%DBName%",
+      "collectionName": "matters",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "SqlQuery": "select TOP 1 r.id from r where r.createdAt > {createdAt} order by r.createdAt"
+    }
+  ]
+}
