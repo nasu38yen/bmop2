@@ -9,7 +9,6 @@ const Post = () => {
   const { blog, isLoading, isError } = useBlog(bid);
   if (isError) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-
   return <Blog blog={blog} />;
 };
 
