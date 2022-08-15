@@ -1,5 +1,5 @@
 import { useLastBlog } from '../../utils/dataSWR';
-import Blog from '../../components/Blog';
+import Blog from '../../components/blog';
 import Layout from '../../layout/Layout';
 
 const Post = () => {
