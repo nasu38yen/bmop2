@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import ReactMarkdown from 'react-markdown';
 import LinkPrior from './LinkPrior';
 import LinkNext from './LinkNext';
-import Comment from './Comment';
+import DisqusComment from './DisqusComment';
 
 const BlogMain = ({ blog }) => {
   return (
@@ -47,7 +47,8 @@ const BlogMain = ({ blog }) => {
         <LinkNext blog={blog} />
       </Stack>
       <Box>
-        <Comment blog={blog} />
+        <Typography>{window.location.href}</Typography>
+        <DisqusComment blog={blog} />
       </Box>
     </Grid>
   );
