@@ -2,10 +2,11 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
 import ReactMarkdown from 'react-markdown';
 import LinkPrior from './LinkPrior';
 import LinkNext from './LinkNext';
+import Comment from './Comment';
 
 const BlogMain = ({ blog }) => {
   return (
@@ -45,6 +46,9 @@ const BlogMain = ({ blog }) => {
         <LinkPrior blog={blog} />
         <LinkNext blog={blog} />
       </Stack>
+      <Box>
+        <Comment blog={blog} />
+      </Box>
     </Grid>
   );
 };
