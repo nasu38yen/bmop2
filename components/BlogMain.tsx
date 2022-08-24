@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import LinkPrior from './LinkPrior';
 import LinkNext from './LinkNext';
 import DisqusComment from './DisqusComment';
+import { format } from 'date-fns';
 
 const BlogMain = ({ blog }) => {
   return (
@@ -38,8 +39,12 @@ const BlogMain = ({ blog }) => {
         divider={<Divider orientation="vertical" flexItem />}
         spacing={2}
       >
-        <Typography>登録：{blog.createdAt}</Typography>
-        <Typography>更新：{blog.updatedAt}</Typography>
+        <Typography>
+          登録：{format(new Date(blog.createdAt), 'yyyy-MM-dd HH:mm')}
+        </Typography>
+        <Typography>
+          更新：{format(new Date(blog.updatedAt), 'yyyy-MM-dd HH:mm')}
+        </Typography>
         <Typography>by {blog.author}</Typography>
       </Stack>
       <Stack direction="row" spacing={2}>
@@ -47,7 +52,6 @@ const BlogMain = ({ blog }) => {
         <LinkNext blog={blog} />
       </Stack>
       <Box>
-        <Typography>{window.location.href}</Typography>
         <DisqusComment blog={blog} />
       </Box>
     </Grid>

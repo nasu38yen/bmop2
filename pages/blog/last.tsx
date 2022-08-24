@@ -1,11 +1,12 @@
 import { useLastBlog } from '../../utils/dataSWR';
-import Blog from '../../components/blog';
 import Layout from '../../layout/Layout';
+import Blog from '../../components/blog';
+import Spinner from '../../components/Spinner';
 
 const Post = () => {
   const { blog, isLoading, isError } = useLastBlog();
   if (isError) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading) return <Spinner />;
 
   return <Blog blog={blog} />;
 };

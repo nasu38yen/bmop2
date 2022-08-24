@@ -1,20 +1,16 @@
-import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Typography from '@mui/material/Typography';
+import Link from '../components/Link';
 
 const Header = () => {
   return (
-    <AppBar position="static" color="transparent" elevation={1}>
-      <Container maxWidth="lg">
-        <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            BMOP
-          </Typography>
-        </Toolbar>
-      </Container>
+    <AppBar position="static" color="primary" elevation={3}>
+      <Toolbar>
+        <Link href="/" underline="none" variant="logo" color="inherit" noWrap>
+          ニュー永安寺
+        </Link>
+      </Toolbar>
     </AppBar>
   );
 };
