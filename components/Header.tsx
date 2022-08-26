@@ -8,7 +8,7 @@ const Header = () => {
     <AppBar position="static" color="primary" elevation={3}>
       <Toolbar>
         <Link href="/" underline="none" variant="logo" color="inherit" noWrap>
-          ニュー永安寺
+          ニュー永UN寺
         </Link>
       </Toolbar>
     </AppBar>
