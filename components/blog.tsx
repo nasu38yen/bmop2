@@ -6,7 +6,7 @@ const Blog = ({ blog }) => {
   return (
     <Grid container spacing={5} sx={{ mt: 0 }}>
       <BlogMain blog={blog} />
-      <BlogSidebar />
+      <BlogSidebar blog={blog} />
     </Grid>
   );
 };

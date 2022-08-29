@@ -25,7 +25,7 @@ const BlogMain = ({ blog }) => {
       <Box mb={2}>
         <BlogBread blog={blog} />
       </Box>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         {blog.title}
       </Typography>
       <Divider />

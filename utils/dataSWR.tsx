@@ -11,6 +11,15 @@ export const useBlog = (id) => {
     };
 };
 
+export const useChildren = (id) => {
+  const { data, error } = useSWR(`/api/children/${id}`, fetcher);
+  return {
+    children: data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
 export const useLastBlog = () => {
   const { data, error } = useSWR('/api/last', fetcher);
   return {
