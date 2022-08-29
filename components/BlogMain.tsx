@@ -8,6 +8,7 @@ import LinkPrior from './LinkPrior';
 import LinkNext from './LinkNext';
 import DisqusComment from './DisqusComment';
 import { format } from 'date-fns';
+import BlogBread from './BlogBread';
 
 const BlogMain = ({ blog }) => {
   return (
@@ -21,6 +22,9 @@ const BlogMain = ({ blog }) => {
         },
       }}
     >
+      <Box mb={2}>
+        <BlogBread blog={blog} />
+      </Box>
       <Typography variant="h6" gutterBottom>
         {blog.title}
       </Typography>
@@ -51,7 +55,7 @@ const BlogMain = ({ blog }) => {
         <LinkPrior blog={blog} />
         <LinkNext blog={blog} />
       </Stack>
-      <Box>
+      <Box mt={2}>
         <DisqusComment blog={blog} />
       </Box>
     </Grid>

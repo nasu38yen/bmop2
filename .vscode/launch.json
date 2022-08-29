@@ -7,6 +7,15 @@
             "request": "attach",
             "port": 9229,
             "preLaunchTask": "func: host start"
+        },
+        {
+            "name": "SWA: Run bmop2",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:4280",
+            "preLaunchTask": "swa: start bmop2",
+            "webRoot": "${workspaceFolder}/",
+            "timeout": 30000
         }
     ]
 }
