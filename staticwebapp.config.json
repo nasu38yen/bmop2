@@ -1,12 +1,16 @@
 {
   "routes": [
     {
-        "route": "/blog/*",
-        "rewrite": "/blog/[bid]/index.html"
+      "route": "/blog/last",
+      "rewrite": "/blog/last/index.html"
+    },
+    {
+      "route": "/blog/*",
+      "rewrite": "/blog/[bid]/index.html"
     }
   ],
   "navigationFallback": {
-      "rewrite": "index.html",
-      "exclude": ["*.{png,jpg,gif,svg}", "*.css"]
+    "rewrite": "index.html",
+    "exclude": ["*.{png,jpg,gif,svg}", "*.css"]
   }
 }
