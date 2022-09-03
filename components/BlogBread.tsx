@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import NextLink from 'next/link';
 
 const getParent = async (post, posts) => {
   if (!post.parentId) {
@@ -22,14 +23,11 @@ const BlogBread = ({ blog }) => {
   return (
     <Breadcrumbs separator="›" aria-label="breadcrumb">
       {posts.map((parent) => (
-        <Link
-          key={parent.id}
-          underline="hover"
-          color="inherit"
-          href={'/blog/' + parent.id}
-        >
-          {parent.title}
-        </Link>
+        <NextLink key={parent.id} href={'/blog/' + parent.id} passHref>
+          <Link underline="hover" color="inherit">
+            {parent.title}
+          </Link>
+        </NextLink>
       ))}
       <Typography color="text.primary">{blog.title}</Typography>
     </Breadcrumbs>

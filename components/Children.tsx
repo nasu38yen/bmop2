@@ -5,6 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { useChildren } from '../utils/dataSWR';
 import { format } from 'date-fns';
+import NextLink from 'next/link';
 
 const Children = ({ blog }) => {
   const { children, isLoading, isError } = useChildren(blog.id);
@@ -17,20 +18,20 @@ const Children = ({ blog }) => {
       </Typography>
       <List>
         {children.map((post) => (
-          <ListItem
-            key={post.id}
-            disableGutters
-            disablePadding
-            divider
-            button
-            component={Link}
-            href={'/blog/' + post.id}
-          >
-            <ListItemText
-              primary={post.title}
-              secondary={format(new Date(post.createdAt), 'yyyy-MM-dd HH:mm')}
-            />
-          </ListItem>
+          <NextLink key={post.id} href={'/blog/' + post.id} passHref>
+            <ListItem
+              disableGutters
+              disablePadding
+              divider
+              button
+              component={Link}
+            >
+              <ListItemText
+                primary={post.title}
+                secondary={format(new Date(post.createdAt), 'yyyy-MM-dd HH:mm')}
+              />
+            </ListItem>
+          </NextLink>
         ))}
       </List>
     </>

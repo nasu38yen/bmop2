@@ -1,10 +1,9 @@
-import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-
+import Link from '@mui/material/Link';
+import NextLink from 'next/link';
 interface MainFeaturedPostProps {
   post: {
     description: string;
@@ -69,9 +68,11 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" color="inherit" href={'/blog/root/'}>
-              {post.linkText}
-            </Link>
+            <NextLink href={'/blog/root/'} passHref>
+              <Link variant="subtitle1" color="inherit">
+                {post.linkText}
+              </Link>
+            </NextLink>
           </Box>
         </Grid>
       </Grid>

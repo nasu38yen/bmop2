@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "route": "/login",
+      "rewrite": "/.auth/login/google"
+    },
+    {
+      "route": "/logout",
+      "rewrite": "/.auth/logout"
+    },
+    {
       "route": "/blog/last",
       "rewrite": "/blog/last/index.html"
     },

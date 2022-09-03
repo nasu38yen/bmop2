@@ -9,6 +9,8 @@ import LinkNext from './LinkNext';
 import DisqusComment from './DisqusComment';
 import { format } from 'date-fns';
 import BlogBread from './BlogBread';
+import Link from '@mui/material/Link';
+import NextLink from 'next/link';
 
 const BlogMain = ({ blog }) => {
   return (
@@ -54,6 +56,9 @@ const BlogMain = ({ blog }) => {
       <Stack direction="row" spacing={2}>
         <LinkPrior blog={blog} />
         <LinkNext blog={blog} />
+        <NextLink href={'/blog/' + blog.id + '/edit'} passHref>
+          <Link>編集</Link>
+        </NextLink>
       </Stack>
       <Box mt={2}>
         <DisqusComment blog={blog} />

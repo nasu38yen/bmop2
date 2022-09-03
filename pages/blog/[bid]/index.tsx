@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
-import { useBlog } from '../../utils/dataSWR';
-import Blog from '../../components/blog';
-import Layout from '../../layout/Layout';
-import Spinner from '../../components/Spinner';
+import { useBlog } from '../../../utils/dataSWR';
+import Blog from '../../../components/blog';
+import Layout from '../../../layout/Layout';
+import Spinner from '../../../components/Spinner';
 
 const Post = () => {
   const router = useRouter();
