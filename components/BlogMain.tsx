@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import LinkPrior from './LinkPrior';
 import LinkNext from './LinkNext';
 import DisqusComment from './DisqusComment';
+import CodeBlock from './CodeBlock';
 import { format } from 'date-fns';
 import BlogBread from './BlogBread';
 import Link from '@mui/material/Link';
@@ -33,6 +34,7 @@ const BlogMain = ({ blog }) => {
       <Divider />
       <ReactMarkdown
         components={{
+          code: CodeBlock,
           img: ({ node, ...props }) => (
             <img style={{ maxWidth: '100%' }} {...props} />
           ),
