@@ -15,10 +15,6 @@
     {
       "route": "/blog/*",
       "rewrite": "/blog/[bid]/index.html"
-    },
-    {
-      "route": "/blog/*/edit",
-      "allowedRoles": ["authenticated"]
     }
   ],
   "navigationFallback": {
