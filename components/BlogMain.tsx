@@ -12,8 +12,14 @@ import { format } from 'date-fns';
 import BlogBread from './BlogBread';
 import Link from '@mui/material/Link';
 import NextLink from 'next/link';
+import { useUserContext } from '../utils/UserContext';
 
 const BlogMain = ({ blog }) => {
+  const { user, setUser } = useUserContext();
+  if (user) {
+    console.log(user.id);
+    console.log(user.name);
+  }
   return (
     <Grid
       item
@@ -58,9 +64,11 @@ const BlogMain = ({ blog }) => {
       <Stack direction="row" spacing={2}>
         <LinkPrior blog={blog} />
         <LinkNext blog={blog} />
-        <NextLink href={'/blog/' + blog.id + '/edit'} passHref>
-          <Link>編集</Link>
-        </NextLink>
+        {user && (
+          <NextLink href={'/blog/' + blog.id + '/edit'} passHref>
+            <Link>編集</Link>
+          </NextLink>
+        )}
       </Stack>
       <Box mt={2}>
         <DisqusComment blog={blog} />

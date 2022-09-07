@@ -1,8 +1,10 @@
-import * as React from 'react';
+import { useEffect } from 'react';
+
 import Grid from '@mui/material/Grid';
 import Layout from '../layout/Layout';
 import MainFeaturedPost from '../components/MainFeaturedPost';
 import FeaturedPost from '../components/FeaturedPost';
+import { useUserContext } from '../utils/UserContext';
 
 const mainFeaturedPost = {
   title: 'B.M.O.P',
@@ -18,7 +20,7 @@ const featuredPosts = [
     title: '人は仏になれるのか？',
     date: '2021-08-09',
     description:
-      '執着が人を苦しめる...仏さまのお話しはそれはよくわかります。問題はそのあとでしょう。ぶっちゃけ、人はいくらがんばっても仏にはなれないんじゃない？？',
+      '人は自らの執着に苦しむ...仏さまのお話しはそれはよくわかります。問題はそのあとでしょう。ぶっちゃけ、人はいくらがんばっても仏にはなれないんじゃないの？？',
     image: '/api/image/torajiro.jpg',
     imageLabel: 'Image Text',
     to: '/blog/8yWvMpDQ',
@@ -34,7 +36,33 @@ const featuredPosts = [
   },
 ];
 
+const getUser = async () => {
+  const res = await fetch('/.auth/me');
+  const data = await res.json();
+  const login = data.clientPrincipal;
+  if (login) {
+    const res2 = await fetch(
+      '/api/userInfo/' + login.identityProvider + '/' + login.userId
+    );
+    try {
+      const user = await res2.json();
+      return user;
+    } catch (err) {}
+    return {
+      id: login.userId,
+      identityProvider: login.identityProvider,
+      name: login.userDetails,
+    };
+  }
+  return null;
+};
+
 const Home = () => {
+  const { user, setUser } = useUserContext();
+  useEffect(() => {
+    getUser().then((user) => setUser(user));
+  }, []);
+
   return (
     <>
       <MainFeaturedPost post={mainFeaturedPost} />
