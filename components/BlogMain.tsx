@@ -16,10 +16,6 @@ import { useUserContext } from '../utils/UserContext';
 
 const BlogMain = ({ blog }) => {
   const { user, setUser } = useUserContext();
-  if (user) {
-    console.log(user.id);
-    console.log(user.name);
-  }
   return (
     <Grid
       item
@@ -67,6 +63,11 @@ const BlogMain = ({ blog }) => {
         {user && (
           <NextLink href={'/blog/' + blog.id + '/edit'} passHref>
             <Link>編集</Link>
+          </NextLink>
+        )}
+        {user && (
+          <NextLink href={'/blog/' + blog.id + '/new'} passHref>
+            <Link>追加</Link>
           </NextLink>
         )}
       </Stack>

@@ -1,6 +1,8 @@
 import Grid from '@mui/material/Grid';
 import { Button, Container, Stack, TextField } from '@mui/material';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useRouter } from 'next/router';
+import { format } from 'date-fns';
 
 type Matter = {
   title: string;
@@ -10,15 +12,33 @@ type Matter = {
   id: string;
 };
 
+const postMatter = async (data) => {
+  data.updatedAt = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
+  if (!data.createdAt) {
+    data.createdAt = data.updatedAt;
+  }
+
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  };
+  await fetch('/api/matter', options);
+};
+
 const BlogForm = ({ blog }) => {
+  // console.log(blog);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm<Matter>();
+  } = useForm<Matter>({ defaultValues: blog });
 
-  const onSubmit: SubmitHandler<Matter> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Matter> = (data) => {
+    // console.log(data);
+    postMatter(data).then(() => router.push('/blog/' + blog.id));
+  };
 
   return (
     <Grid
@@ -33,19 +53,16 @@ const BlogForm = ({ blog }) => {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3}>
-          <TextField
-            required
-            label="タイトル"
-            {...register('title')}
-            defaultValue={blog.title}
-          />
+          <TextField label="親ノートID" {...register('parentId')} />
+          <TextField label="ID" {...register('id')} />
+          <TextField label="編集者" {...register('author')} />
+          <TextField required label="タイトル" {...register('title')} />
           <TextField
             required
             label="お名前"
-            {...register('text')}
-            defaultValue={blog.text}
             multiline
             rows={20}
+            {...register('text')}
           />
           <Button
             color="primary"
