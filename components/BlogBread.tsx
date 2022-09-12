@@ -18,7 +18,7 @@ const BlogBread = ({ blog }) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     getParent(blog, []).then((posts) => setPosts(posts));
-  }, []);
+  }, [blog]);
 
   return (
     <Breadcrumbs separator="›" aria-label="breadcrumb">
