@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import NextLink from 'next/link';
+import NextImage from 'next/image';
 interface MainFeaturedPostProps {
   post: {
     description: string;

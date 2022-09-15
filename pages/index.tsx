@@ -61,7 +61,7 @@ const Home = () => {
   const { user, setUser } = useUserContext();
   useEffect(() => {
     getUser().then((user) => setUser(user));
-  }, []);
+  }, [setUser]);
 
   return (
     <>

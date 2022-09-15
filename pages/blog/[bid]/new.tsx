@@ -38,7 +38,7 @@ const Append = () => {
     getNewMatter(bid).then((blog) => {
       setBlog(blog);
     });
-  }, []);
+  }, [bid]);
 
   // Stateがセットされてからフォームへ渡す
   if (blog.id === '') return <Spinner />;
