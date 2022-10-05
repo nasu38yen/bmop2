@@ -44,8 +44,8 @@ const BlogForm = ({ blog }) => {
   } = useForm<Matter>({ defaultValues: blog, resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<Matter> = (data) => {
-    console.log(data);
-    // postMatter(data).then(() => router.push('/blog/' + blog.id));
+    // console.log(data);
+    postMatter(data).then(() => router.push('/blog/' + blog.id));
   };
 
   return (
